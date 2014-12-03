@@ -18,6 +18,11 @@ feature 'TodoList management' do
 	  expect(page).to have_content 'Todo was successfully created.'
 	end
 
+	scenario 'displays all public todo list' do
+	  visit root_path
+	  click_link 'All Todos'
 
+	  expect(page).to have_content "All Public Todos"
+	end
 
 end
