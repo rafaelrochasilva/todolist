@@ -6,11 +6,12 @@ class TodoListsController < ApplicationController
 	end
 
 	def my_todos
-		@todo_lists = current_user.todo_lists.all
+		@my_todos = current_user.todo_lists.all
+		p @my_todos.count
 	end
 
 	def show
-
+		@todo_list = TodoList.find(params[:id])
 	end
 
 	def new
@@ -20,7 +21,7 @@ class TodoListsController < ApplicationController
 	def create
 		@todo_list = TodoList.new(todo_params)
 
-		if @todo_list.valid?
+		if @todo_list.save
 			flash[:notice] = "Todo was successfully created."
 			redirect_to @todo_list
 		else
