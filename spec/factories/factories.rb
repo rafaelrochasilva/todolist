@@ -7,4 +7,10 @@ FactoryGirl.define do
   		password '123456789'
   	end
   end
+
+  factory :todo_list do
+  	name Faker::Lorem.word
+  	private_todo false
+  	user
+  end
 end
