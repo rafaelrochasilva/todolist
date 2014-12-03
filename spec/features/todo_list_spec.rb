@@ -15,7 +15,9 @@ feature 'TodoList management' do
 
 	  click_button "Add"
 
-
+	  expect(page).to have_content 'Todo was successfully created.'
 	end
+
+
 
 end
