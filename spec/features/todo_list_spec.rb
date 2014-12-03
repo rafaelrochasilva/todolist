@@ -4,7 +4,7 @@ feature 'TodoList management' do
 	let(:user) { FactoryGirl.create(:user) }
 	before { login_as(user, scope: :user) }
 
-	let(:todo_list) { FactoryGirl.build(:todo_list) }
+	let(:todo_list) { FactoryGirl.create(:todo_list) }
 
 
 	scenario 'adds a new todo list' do
@@ -32,7 +32,20 @@ feature 'TodoList management' do
 	end
 
 	scenario 'display one todo list' do
+		visit todo_list_path(todo_list.id)
+		expect(page).to have_css ".todolist"
+	end
 
+	scenario 'update one todo list' do
+		visit todo_list_path(todo_list.id)
+		click_button "Update"
+		expect(page).to have_content "Todo was successfully updated."
+	end
+
+	scenario 'delete one todo list' do
+		visit todo_list_path(todo_list.id)
+		click_button "Delete"
+		expect(page).to have_content "Todo Successfully destroyed."
 	end
 
 end
