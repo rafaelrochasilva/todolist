@@ -1,0 +1,5 @@
+<h1>All Public Todos</h1>
+
+<% @todo_lists.each do |todo_list| %>
+	<%= render partial: "todo", locals: { todo_list: todo_list } %>
+<% end %>
