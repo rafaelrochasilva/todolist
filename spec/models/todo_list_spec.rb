@@ -6,4 +6,10 @@ describe TodoList do
 		todo_list = FactoryGirl.create(:todo_list)
 		expect(todo_list).to be_valid
 	end
+
+	it "is invalid without name" do
+		todo_list = FactoryGirl.build(:todo_list, name: nil)
+		todo_list.valid?
+		expect(todo_list.errors[:name]).to include("can't be blank")
+	end
 end
