@@ -1,8 +1,16 @@
 class TodoListsController < ApplicationController
-	before_action :authenticate_user!, :only => [:new, :destroy]
+	before_action :authenticate_user!, :only => [:new, :my_todos, :destroy]
 
 	def index
 		@todo_lists = TodoList.all.where(private_todo: false)
+	end
+
+	def my_todos
+		@todo_lists = current_user.todo_lists.all
+	end
+
+	def show
+
 	end
 
 	def new

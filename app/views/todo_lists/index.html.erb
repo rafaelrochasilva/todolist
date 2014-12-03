@@ -1,7 +1,7 @@
 <h1>All Public Todos</h1>
 
-<%= @todo_lists.each do |todo_list| %>
-	<div class="todo">
-		<h2><%= todo_list.name %></h2>
-	</div>
+<% unless @my_todos.nil? %>
+	<%= @todo_lists.each do |todo_list| %>
+		<%= render partial: "todo", locals: { todo_list: todo_list } %>
+	<% end %>
 <% end %>
