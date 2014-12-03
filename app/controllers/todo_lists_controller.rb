@@ -1,5 +1,5 @@
 class TodoListsController < ApplicationController
-	before_action :authenticate_user!, :only => [:new, :my_todos, :destroy]
+	before_action :authenticate_user!, :only => [:new, :edit, :update, :my_todos, :destroy]
 
 	def index
 		@todo_lists = TodoList.all.where(private_todo: false)
@@ -7,7 +7,6 @@ class TodoListsController < ApplicationController
 
 	def my_todos
 		@my_todos = current_user.todo_lists.all
-		p @my_todos.count
 	end
 
 	def show
@@ -23,7 +22,7 @@ class TodoListsController < ApplicationController
 
 		if @todo_list.save
 			flash[:notice] = "Todo was successfully created."
-			redirect_to @todo_list
+			respond_with(@todo_list)
 		else
 			flash[:notice] = "Coudn't create a Todo."
 			render 'new'
@@ -39,11 +38,20 @@ class TodoListsController < ApplicationController
 
 		if @todo_list.update(todo_params)
 			flash[:notice] = "Todo was successfully updated."
-			redirect_to @todo_list
+			respond_with(@todo_list)
 		else
 			flash[:notice] = "Couldn't update a Todo."
 			render 'edit'
 		end
+	end
+
+	def destroy
+		@todo_list = TodoList.find(params[:id])
+
+		@todo_list.destroy
+		flash[:notice] = "Todo Successfully destroyed."
+
+		respond_with(@todo_list)
 	end
 
 	private
