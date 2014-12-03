@@ -1,4 +1,8 @@
 class TodoListsController < ApplicationController
+	def index
+		@todo_lists = TodoList.all.where(private_todo: false)
+	end
+
 	def new
 		@todo_list = TodoList.new
 	end
