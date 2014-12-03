@@ -85,8 +85,4 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 
-  # Add warden
-  config.include Warden::Test::Helpers
-  Warden.test_mode!
-  config.after(:each) { Warden.test_reset! }
 end
