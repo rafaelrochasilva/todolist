@@ -1,0 +1,7 @@
+<h1>All Public Todos</h1>
+
+<%= @todo_lists.each do |todo_list| %>
+	<div class="todo">
+		<h2><%= todo_list.name %></h2>
+	</div>
+<% end %>
