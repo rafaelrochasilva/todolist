@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203092609) do
+ActiveRecord::Schema.define(version: 20141203183346) do
+
+  create_table "list_items", force: true do |t|
+    t.integer "todo_list_id", null: false
+    t.string  "description",  null: false
+  end
 
   create_table "todo_lists", force: true do |t|
     t.integer "user_id",                      null: false
