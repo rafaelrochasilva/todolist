@@ -4,7 +4,7 @@ class CreateTodoList < ActiveRecord::Migration
       t.belongs_to :user, null: false
       t.string :name, null: false
       t.boolean :private_todo, default: false
-      t.timestamps
+      t.timestamp
     end
   end
 end

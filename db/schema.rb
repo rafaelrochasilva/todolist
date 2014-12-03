@@ -14,11 +14,9 @@
 ActiveRecord::Schema.define(version: 20141203092609) do
 
   create_table "todo_lists", force: true do |t|
-    t.integer  "user_id",                      null: false
-    t.string   "name",                         null: false
-    t.boolean  "private_todo", default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "user_id",                      null: false
+    t.string  "name",                         null: false
+    t.boolean "private_todo", default: false
   end
 
   create_table "users", force: true do |t|
