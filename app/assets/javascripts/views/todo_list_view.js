@@ -9,7 +9,7 @@ TodoView.hideBtnAddItem = function(){
 
 TodoView.makeFormItem = function(todo_list_id){
 	var fields = TodoView.addListItem();
-	var init_form = "<form action='/todo_lists/"+todo_list_id+"/list_item/new' method='POST'>";
+	var init_form = "<form action='/todo_lists/"+todo_list_id+"/list_item' method='POST'>";
 	var end_form = "</form>";
 	var form_item = init_form + fields + end_form;
 
@@ -18,14 +18,14 @@ TodoView.makeFormItem = function(todo_list_id){
 
 TodoView.addListItem = function(){
 	var item_input = TodoView.createInputField();
-	var add_item_btn = TodoView.createAddItemBtn();
+	var add_item_btn = TodoView.createSubmitBtn();
 	return item_input + add_item_btn;
 };
 
 TodoView.createInputField = function(){
-	return "<input name='todo_list_item[description]'></input>";
+	return "<input id='description' name='todo_list_item[description]'></input>";
 };
 
-TodoView.createAddItemBtn = function(){
-	return "<input type='submit' value='Add'>";
+TodoView.createSubmitBtn = function(){
+	return "<input class='btn-submit-item' type='submit' value='Add'>";
 };
