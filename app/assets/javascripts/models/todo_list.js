@@ -22,6 +22,8 @@ TodoList.addItemListener = function(){
 TodoList.submitItemListener = function(){
 	$(".new_form").delegate('form', 'submit', function(e){
 		e.preventDefault();
+		e.stopPropagation();
+
 		var $this = $(this);
 
 		var form_data = $this.serialize();
@@ -60,33 +62,24 @@ TodoList.submitItemFail = function(){
 	TodoView.showElement($this);
 };
 
-
-
-
-
-
-
 TodoList.deleteItemListener = function(){
-	$(".list_items ul").delegate('delete_item', 'click', function(e){
+	$(".list_items ul").delegate('.delete_item', 'click', function(e){
 		e.preventDefault();
+		e.stopPropagation();
 
-		alert("deleteItemListener click");
-
-		var $this = $(this).parent();
+		var $this = $(this);
 		var url = $this.attr("href");
 
-		TodoView.hideElement($this);
+
 
 		$.ajax({
 			type: 'DELETE',
 			url: url,
 			dataType: 'json'
 		}).done(function(data){
-			alert("deleted");
+			TodoView.hideElement($this.parent().parent());
 		}).fail(function(data){
-			// alert("Can't delete"+ data);
-			console.log(data);
-			TodoView.showElement($this);
+			alert(data);
 		});
 
 	});
