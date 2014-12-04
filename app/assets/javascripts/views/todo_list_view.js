@@ -43,3 +43,11 @@ TodoView.displayLoading = function(){
 TodoView.hideLoading = function(){
 	$(".loading").remove();
 };
+
+TodoView.displayNewListItem = function(data){
+	var li_init = "<li>" + data.description;
+	var span = "<span><a data-method='delete' href='/todo_lists/"+data.id+"/list_item/"+data.todo_list_id+"' rel='nofollow'>x</a></span>";
+	var li_end = "</li>";
+	var final_html = li_init + span + li_end;
+	$("ul").append(final_html);
+};
