@@ -15,7 +15,7 @@ class ListItemController < ApplicationController
 		@list_item = ListItem.find(params[:id])
 		@list_item.destroy
 
-		respond_with(@list_item, location: todo_list_path(id: params[:todo_list_id]))
+		respond_with(nil, location: todo_list_path(id: params[:todo_list_id]))
 	end
 
 	private
