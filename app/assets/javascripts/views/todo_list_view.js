@@ -27,5 +27,5 @@ TodoView.createInputField = function(){
 };
 
 TodoView.createAddItemBtn = function(){
-	return "<button class='add-item'>Add</button>";
+	return "<input type='submit' value='Add'>";
 };
