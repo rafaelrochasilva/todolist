@@ -1,6 +1,10 @@
 var TodoList = {
 	BTN_ADD_ITEM: ".btn-add-item",
-	BTN_SUBMIT_ITEM: ".btn-submit-item",
+	BTN_SUBMIT_ITEM: ".btn-submit-item"
+};
+
+TodoList.grabTodoID = function(){
+	this.id = $(".title").attr('id');
 };
 
 TodoList.addItemListener = function(){
@@ -8,21 +12,20 @@ TodoList.addItemListener = function(){
 	$(this.BTN_ADD_ITEM).click(function(e){
 		e.preventDefault();
 
-		// TodoList.id = $(".title").attr('id');
 		TodoList.grabTodoID();
+		TodoView.hideBtn($(this));
 
-		TodoView.hideBtnAddItem();
 		TodoView.makeFormItem(TodoList.id);
 	});
-};
-
-TodoList.grabTodoID = function(){
-	this.id = $(".title").attr('id');
 };
 
 TodoList.submitItemListener = function(){
 	$(this.BTN_SUBMIT_ITEM).click(function(e){
 		e.preventDefault();
+
+		TodoView.hideBtn($(this));
+		TodoView.displayLoading();
+
 		$.ajax({
 			type: "POST",
 			url: '/todo_lists/:todo_list_id/list_item',

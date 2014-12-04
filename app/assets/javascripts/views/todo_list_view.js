@@ -1,10 +1,11 @@
 var TodoView = {
 	TODO_FORM: ".new_form",
-	BTN_ADD_ITEM: ".btn-add-item"
+	BTN_ADD_ITEM: ".btn-add-item",
+	IMG_LOADER: "http://upload.wikimedia.org/wikipedia/commons/d/de/Ajax-loader.gif"
 };
 
-TodoView.hideBtnAddItem = function(){
-	$(this.BTN_ADD_ITEM).hide();
+TodoView.hideBtn = function(btn){
+	btn.hide();
 };
 
 TodoView.makeFormItem = function(todo_list_id){
@@ -29,3 +30,5 @@ TodoView.createInputField = function(){
 TodoView.createSubmitBtn = function(){
 	return "<input class='btn-submit-item' type='submit' value='Add'>";
 };
+
+TodoView.displayLoading = function(){};
