@@ -24,22 +24,39 @@ TodoList.submitItemListener = function(){
 		e.preventDefault();
 		var $this = $(this);
 
-		var data = $this.serialize();
+		var form_data = $this.serialize();
 		var url = "/todo_lists/"+TodoList.id+"/list_item";
 
 		TodoView.hideElement($this);
 		TodoView.displayLoading();
 
-		$.post(url, data)
-			.done(function(data){
-				//TodoView.displayNewListItem();
-				TodoView.hideLoading();
-			}).fail(function(data){
-				alert("Can't create a new Item");
-				TodoView.hideLoading();
-				TodoView.showElement($this);
-			});
+		$.ajax({
+			type: 'POST',
+			url: url,
+			data: form_data,
+			dataType: 'json'
+		}).done(function(data){
+			TodoList.submitItemSuccess($this, data);
+		}).fail(function(data){
+			TodoList.submitItemFail();
+		});
+
 	});
+};
+
+TodoList.submitItemSuccess = function(form, data){
+	TodoView.hideLoading();
+	TodoView.showElement(form);
+
+	$("#description").val('');
+	console.log(data);
+	TodoView.displayNewListItem(data);
+};
+
+TodoList.submitItemFail = function(){
+	alert("Can't create a new Item");
+	TodoView.hideLoading();
+	TodoView.showElement($this);
 };
 
 
