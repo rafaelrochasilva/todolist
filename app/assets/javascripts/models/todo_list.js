@@ -13,28 +13,32 @@ TodoList.addItemListener = function(){
 		e.preventDefault();
 
 		TodoList.grabTodoID();
-		TodoView.hideBtn($(this));
+		TodoView.hideElement($(this));
 
 		TodoView.makeFormItem(TodoList.id);
 	});
 };
 
 TodoList.submitItemListener = function(){
-	$(this.BTN_SUBMIT_ITEM).click(function(e){
+	$(".new_form").delegate('form', 'submit', function(e){
 		e.preventDefault();
+		var $this = $(this);
 
-		TodoView.hideBtn($(this));
+		var data = $this.serialize();
+		var url = "/todo_lists/"+TodoList.id+"/list_item";
+
+		TodoView.hideElement($this);
 		TodoView.displayLoading();
 
-		$.ajax({
-			type: "POST",
-			url: '/todo_lists/:todo_list_id/list_item',
-			dataType: 'json'
-		}).done(function(data){
-			alert("sent");
-		}).fail(function(data){
-			alert("Can't create a new Item");
-		});
+		$.post(url, data)
+			.done(function(data){
+				//TodoView.displayNewListItem();
+				TodoView.hideLoading();
+			}).fail(function(data){
+				alert("Can't create a new Item");
+				TodoView.hideLoading();
+				TodoView.showElement($this);
+			});
 	});
 };
 
