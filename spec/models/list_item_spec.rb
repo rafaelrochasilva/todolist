@@ -14,8 +14,8 @@ describe ListItem do
 	end
 
 	it 'is invalid without todo_list' do
-		list_item = FactoryGirl.build(:list_item, todo_list: nil)
+		list_item = FactoryGirl.build(:list_item, todo_list_id: nil)
 		list_item.valid?
-		expect(list_item.errors[:todo_list]).to include "can't be blank"
+		expect(list_item.errors[:todo_list_id]).to include "can't be blank"
 	end
 end
