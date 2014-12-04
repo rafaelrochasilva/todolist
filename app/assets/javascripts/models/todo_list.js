@@ -38,6 +38,8 @@ TodoList.submitItemListener = function(){
 		}).done(function(data){
 			TodoList.submitItemSuccess($this, data);
 		}).fail(function(data){
+				alert("Can't create a new Item");
+
 			TodoList.submitItemFail();
 		});
 
@@ -49,7 +51,6 @@ TodoList.submitItemSuccess = function(form, data){
 	TodoView.showElement(form);
 
 	$("#description").val('');
-	console.log(data);
 	TodoView.displayNewListItem(data);
 };
 
@@ -61,3 +62,32 @@ TodoList.submitItemFail = function(){
 
 
 
+
+
+
+
+TodoList.deleteItemListener = function(){
+	$(".list_items ul").delegate('delete_item', 'click', function(e){
+		e.preventDefault();
+
+		alert("deleteItemListener click");
+
+		var $this = $(this).parent();
+		var url = $this.attr("href");
+
+		TodoView.hideElement($this);
+
+		$.ajax({
+			type: 'DELETE',
+			url: url,
+			dataType: 'json'
+		}).done(function(data){
+			alert("deleted");
+		}).fail(function(data){
+			// alert("Can't delete"+ data);
+			console.log(data);
+			TodoView.showElement($this);
+		});
+
+	});
+};
