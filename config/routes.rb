@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   get 'todo_lists/my_todos' => 'todo_lists#my_todos'
 
-  resources :todo_lists
+  resources :todo_lists do
+    resources :list_item, as: :item
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

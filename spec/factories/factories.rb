@@ -13,4 +13,9 @@ FactoryGirl.define do
   	private_todo false
   	user
   end
+
+  factory :list_item do
+    description Faker::Lorem.paragraph
+    todo_list
+  end
 end

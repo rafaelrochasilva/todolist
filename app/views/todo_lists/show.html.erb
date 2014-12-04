@@ -1,5 +1,8 @@
 <div class="todolist">
-	<div class="title"><%= @todo_list.name %></div>
+	<div class="title" id="<%= @todo_list.id %>"><%= @todo_list.name %></div>
+
+	<%= render partial: "todo_lists" %>
+
 	<% if current_user.id == @todo_list.user.id %>
 		<%= link_to "Update", edit_todo_list_path(@todo_list) %>
 		<%= link_to "Delete", todo_list_path(@todo_list), method: :delete %>
