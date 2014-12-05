@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   get 'favorites' => 'favorite_todos#index'
-  put 'favorite/:id' => 'favorite_todos#favorite'
+  put 'favorite/:id' => 'favorite_todos#favorite', as: :my_favorite
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
