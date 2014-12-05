@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   get 'todo_lists/my_todos' => 'todo_lists#my_todos'
 
   resources :todo_lists do
-    put :favorite, on: :member
     resources :list_item, as: :item
   end
 
+  get 'favorites' => 'favorite_todos#index'
+  put 'favorite/:id' => 'favorite_todos#favorite'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
