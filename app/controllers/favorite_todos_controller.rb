@@ -8,14 +8,18 @@ class FavoriteTodosController < ApplicationController
 		@todo_list = TodoList.find(params[:id])
 
 		if params[:type] == "favorite"
-			current_user.favorite_todos.create(todo_list_id: @todo_list.id)
-			flash[:notice] = "Add #{@todo_list.name} as favorite"
-			respond_with(@todo_list)
+			favorite = current_user.favorite_todos.new(todo_list_id: @todo_list.id)
+			if favorite.save
+				flash[:notice] = "Add #{@todo_list.name} as favorite"
+			end
 		else
-			current_user.favorite_todos.delete(todo_list_id: @todo_list.id)
-			flash[:notice] = "Remove #{@todo_list.name} as favorite"
-			respond_with(nil, @todo_list)
+			favorite = current_user.favorite_todos.find_by(todo_list_id: @todo_list.id)
+			if favorite
+				favorite.destroy
+				flash[:notice] = "Remove #{@todo_list.name} as favorite"
+			end
 		end
+		respond_with(nil, @todo_list)
 	end
 
 end
