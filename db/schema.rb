@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203183346) do
+ActiveRecord::Schema.define(version: 20141205120143) do
+
+  create_table "favorite_todos", force: true do |t|
+    t.integer "user_id"
+    t.integer "todo_list_id"
+  end
 
   create_table "list_items", force: true do |t|
     t.integer "todo_list_id", null: false
