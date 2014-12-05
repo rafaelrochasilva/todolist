@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'todo_lists/my_todos' => 'todo_lists#my_todos'
 
   resources :todo_lists do
+    put :favorite, on: :member
     resources :list_item, as: :item
   end
 
