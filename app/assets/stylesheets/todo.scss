@@ -1,0 +1,38 @@
+/*
+	- Display a card with the TODO
+	- Display X Remove button in the TOP RIGHT
+*/
+
+.todo {
+	display: block;
+	margin-bottom: 10px;
+	width: 50%;
+	float: left;
+
+	.card {
+		background-color: #fff;
+		margin: 5px;
+		box-shadow: 0 1px 0.125em #BBB;
+		position: relative;
+
+		.todo-header {
+			display: block;
+			position: absolute;
+			width: 100%;
+
+			.update-todo {
+				margin: 5px;
+				float: left;
+			}
+
+			.del-todo {
+				margin: 5px;
+				float: right;
+			}
+		}
+
+		.img-main {
+			width: 100%;
+		}
+	}
+}
