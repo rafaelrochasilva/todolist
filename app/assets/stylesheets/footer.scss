@@ -1,0 +1,13 @@
+/*
+	- Include a image in the bottom-right side of the page
+*/
+footer {
+	display: block;
+	bottom: 0;
+	width: 100%;
+	position: fixed;
+
+	img {
+		float: right;
+	}
+}
