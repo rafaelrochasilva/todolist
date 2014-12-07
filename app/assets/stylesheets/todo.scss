@@ -1,6 +1,12 @@
 /*
 	- Display a card with the TODO
-	- Display X Remove button in the TOP RIGHT
+	- Display delete btn and update inside a mini header
+		- delete top right
+		- update top left
+	- Display an image
+	- Display the title
+	- Display List Items
+	- Display button to add content dynamically
 */
 
 .todo {
@@ -19,6 +25,7 @@
 			display: block;
 			position: absolute;
 			width: 100%;
+			background-color: #fff;
 
 			.update-todo {
 				margin: 5px;
@@ -34,5 +41,33 @@
 		.img-main {
 			width: 100%;
 		}
+
+		.title {
+			font-size: 1.6em;
+			text-align: center;
+		}
+
+		ul {
+			margin-right: 10px;
+			li {
+				width: 100%;
+				span {
+					float: right;
+					a {
+						color: #999;
+					}
+				}
+			}
+		}
+
+		.btn-add-item {
+			margin: 10px;
+		}
+
+		.new_form form{
+			display: block;
+			margin: 10px;
+		}
+
 	}
 }
