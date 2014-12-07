@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205120143) do
+ActiveRecord::Schema.define(version: 20141207184738) do
 
   create_table "favorite_todos", force: true do |t|
     t.integer "user_id"
@@ -24,9 +24,13 @@ ActiveRecord::Schema.define(version: 20141205120143) do
   end
 
   create_table "todo_lists", force: true do |t|
-    t.integer "user_id",                      null: false
-    t.string  "name",                         null: false
-    t.boolean "private_todo", default: false
+    t.integer  "user_id",                            null: false
+    t.string   "name",                               null: false
+    t.boolean  "private_todo",       default: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "users", force: true do |t|
