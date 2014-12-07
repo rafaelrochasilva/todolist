@@ -2,7 +2,7 @@
 	<div class="card">
 		<%= render partial: 'todo_lists/partials/todo_header', locals: { todo_list: todo_list } %>
 
-		<%= image_tag("sample.jpg", class: "img-main") %>
+		<%= image_tag(todo_list.photo, class: "img-main") %>
 
 		<div class="todo-main">
 			<%= render partial: 'todo_lists/partials/favorite_todo', locals: { todo_list: todo_list } %>
