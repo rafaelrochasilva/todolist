@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'application#index'
+  root 'todo_lists#index'
 
   get 'todo_lists/my_todos' => 'todo_lists#my_todos'
 

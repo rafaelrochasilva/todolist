@@ -1,0 +1,4 @@
+	<% if current_user %>
+	  <%= link_to "favorite", my_favorite_path(todo_list, type: "favorite"), method: :put %>
+		<%= link_to "unfavorite", my_favorite_path(todo_list, type: "unfavorite"), method: :put %>
+	<% end %>

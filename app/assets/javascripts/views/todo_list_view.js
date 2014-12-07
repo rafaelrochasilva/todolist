@@ -46,8 +46,8 @@ TodoView.hideLoading = function(){
 
 TodoView.displayNewListItem = function(data){
 	var li_init = "<li>" + data.description;
-	var span = "<span><a class='delete_item' data-method='delete' href='/todo_lists/"+data.todo_list_id+"/list_item/"+data.id+"' rel='nofollow'>x</a></span>";
+	var span = "<span><a class='delete_item' data-method='delete' href='/todo_lists/"+data.todo_list_id+"/list_item/"+data.id+"' rel='nofollow'>delete</a></span>";
 	var li_end = "</li>";
 	var final_html = li_init + span + li_end;
-	$(".list_items ul").append(final_html);
+	$(".card ul").append(final_html);
 };

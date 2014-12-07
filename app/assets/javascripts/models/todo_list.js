@@ -63,7 +63,7 @@ TodoList.submitItemFail = function(){
 };
 
 TodoList.deleteItemListener = function(){
-	$(".list_items ul").delegate('.delete_item', 'click', function(e){
+	$(".card ul").delegate('.delete_item', 'click', function(e){
 		e.preventDefault();
 		e.stopPropagation();
 

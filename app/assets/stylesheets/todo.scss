@@ -1,0 +1,90 @@
+/*
+	- Display a card with the TODO
+	- Display delete btn and update inside a mini header
+		- delete top right
+		- update top left
+	- Display an image
+	- Display the title
+	- Display List Items
+	- Display button to add content dynamically
+*/
+
+.todo {
+	display: block;
+	margin-bottom: 10px;
+	width: 50%;
+	float: left;
+
+	.card {
+		background-color: #fff;
+		margin: 5px;
+		box-shadow: 0 1px 0.125em #BBB;
+		position: relative;
+
+		.todo-header {
+			display: block;
+			position: absolute;
+			width: 100%;
+			background-color: #fff;
+
+			.update-todo {
+				margin: 5px;
+				float: left;
+			}
+
+			.del-todo {
+				margin: 5px;
+				float: right;
+			}
+		}
+
+		.img-main {
+			width: 100%;
+		}
+
+		.todo-main {
+			padding: 10px;
+
+			.title {
+				font-size: 1.6em;
+				text-align: center;
+			}
+
+			ul {
+				margin-right: 10px;
+				li {
+					width: 100%;
+					span {
+						float: right;
+						a {
+							color: #999;
+						}
+					}
+				}
+			}
+
+			.btn-add-item {
+				display: block;
+				margin: 10px auto;
+			}
+
+			.new_form form{
+				display: block;
+				margin: 10px;
+				text-align: center;
+			}
+		}
+
+		.general-menu {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			.input {
+				padding: 10px;
+				label {
+					margin-right: 20px;
+				}
+			}
+		}
+	}
+}

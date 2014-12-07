@@ -1,0 +1,52 @@
+/*
+	Create a header with:
+		- Logo in the left corner.
+		- nav bar in right corner with li elements aligned in the same line
+		- Links have grey color
+			- when highlight the background changes to black and the font to white
+*/
+header {
+	width: 100%;
+	height: 50px;
+	background-color: rgba(255,255,255,0.6);
+
+
+
+
+	.logo{
+		display: block;
+		float: left;
+		width: auto;
+		margin: 12px;
+		top: 0;
+		img {
+			width: 70%;
+			height: 70%;
+		}
+	}
+	nav {
+		float: right;
+		display: block;
+		margin-right: 5px;
+		ul {
+			margin: 0;
+			padding: 0;
+			li {
+				display: inline-block;
+				line-height: 50px;
+
+				a {
+					padding: 10px 12px;
+					color: #666;
+				}
+
+				a:hover {
+					background-color: #333;
+					color: #fff;
+					text-decoration: none;
+				}
+			}
+
+		}
+	}
+}
