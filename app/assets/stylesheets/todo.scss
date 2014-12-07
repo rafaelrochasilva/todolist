@@ -69,5 +69,16 @@
 			margin: 10px;
 		}
 
+		.general-menu {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			.input {
+				padding: 10px;
+				label {
+					margin-right: 20px;
+				}
+			}
+		}
 	}
 }
