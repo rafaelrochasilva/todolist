@@ -7,6 +7,8 @@
 				<%= f.input :user_id, as: :hidden, input_html: {value: current_user.id } %>
 				<%= f.input :name %>
 				<%= f.input :private_todo, as: :boolean, checked_value: true, unchecked_value: false %>
+				<%= f.input :photo, as: :file %>
+
 				<%= f.button :submit, "Update" %>
 			<% end %>
 		</div>
