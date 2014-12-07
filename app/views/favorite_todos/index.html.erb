@@ -1,3 +1,5 @@
+<h1>My Favorite Todos</h1>
+
 <% @my_favorites.each do |favorite| %>
 	<%= render partial: "todo_lists/partials/todo_mini", locals: { todo_list: favorite.todo_list } %>
 <% end %>
