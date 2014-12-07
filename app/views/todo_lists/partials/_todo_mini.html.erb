@@ -1,0 +1,11 @@
+<div class="todo">
+	<div class="card">
+		<a href="<%= todo_list_path(todo_list) %>">
+			<%= image_tag("sample.jpg", class: "img-main") %>
+
+			<%= render partial: 'todo_lists/partials/favorite_todo', locals: { todo_list: todo_list } %>
+
+			<div class="title" id="<%= todo_list.id %>"><%= todo_list.name %></div>
+		 </a>
+	</div>
+</div>

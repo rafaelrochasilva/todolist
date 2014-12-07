@@ -1,16 +1,1 @@
-<div class="todolist">
-	<div class="title" id="<%= @todo_list.id %>"><%= @todo_list.name %></div>
-
-	<% if current_user %>
-	  <%= link_to "favorite", my_favorite_path(@todo_list, type: "favorite"), method: :put %>
-		<%= link_to "unfavorite", my_favorite_path(@todo_list, type: "unfavorite"), method: :put %>
-	<% end %>
-
-
-	<%= render partial: "todo_lists" %>
-
-	<% if current_user.id == @todo_list.user.id %>
-		<%= link_to "Update", edit_todo_list_path(@todo_list) %>
-		<%= link_to "Delete", todo_list_path(@todo_list), method: :delete %>
-	<% end %>
-</div>
+<%= render partial: "todo_lists/partials/todo", locals: { todo_list: @todo_list } %>
