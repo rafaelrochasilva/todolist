@@ -49,4 +49,7 @@ group :development, :test do
   gem 'faker'
 end
 
+gem "paperclip", "~> 4.2"
+
+
 
