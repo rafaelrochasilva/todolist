@@ -42,31 +42,37 @@
 			width: 100%;
 		}
 
-		.title {
-			font-size: 1.6em;
-			text-align: center;
-		}
+		.todo-main {
+			padding: 10px;
 
-		ul {
-			margin-right: 10px;
-			li {
-				width: 100%;
-				span {
-					float: right;
-					a {
-						color: #999;
+			.title {
+				font-size: 1.6em;
+				text-align: center;
+			}
+
+			ul {
+				margin-right: 10px;
+				li {
+					width: 100%;
+					span {
+						float: right;
+						a {
+							color: #999;
+						}
 					}
 				}
 			}
-		}
 
-		.btn-add-item {
-			margin: 10px;
-		}
+			.btn-add-item {
+				display: block;
+				margin: 10px auto;
+			}
 
-		.new_form form{
-			display: block;
-			margin: 10px;
+			.new_form form{
+				display: block;
+				margin: 10px;
+				text-align: center;
+			}
 		}
 
 		.general-menu {
