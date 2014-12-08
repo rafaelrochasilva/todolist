@@ -4,12 +4,12 @@ feature 'TodoList management' do
 	let(:user) { FactoryGirl.create(:user) }
 	before { login_as(user, scope: :user) }
 
-	let(:todo_list) { FactoryGirl.create(:todo_list) }
+	let(:todo_list) { user.todo_lists.create(name: "test") }
 
 
 	scenario 'adds a new todo list' do
 	  visit root_path
-	  click_link 'New Todo'
+	  click_link 'New'
 
 	  fill_in 'Name', with: todo_list.name
 
@@ -20,7 +20,7 @@ feature 'TodoList management' do
 
 	scenario 'displays all public todo lists' do
 	  visit root_path
-	  click_link 'All Todos'
+	  click_link 'All'
 
 	  expect(page).to have_content "All Public Todos"
 	end
@@ -33,18 +33,18 @@ feature 'TodoList management' do
 
 	scenario 'display one todo list' do
 		visit todo_list_path(todo_list.id)
-		expect(page).to have_css ".todolist"
+		expect(page).to have_css ".card"
 	end
 
 	scenario 'update one todo list' do
 		visit todo_list_path(todo_list.id)
-		click_button "Update"
-		expect(page).to have_content "Todo was successfully updated."
+		click_link "Update"
+		expect(page).to have_content "Edit Todo"
 	end
 
 	scenario 'delete one todo list' do
 		visit todo_list_path(todo_list.id)
-		click_button "Delete"
+		click_link "X"
 		expect(page).to have_content "Todo Successfully destroyed."
 	end
 
