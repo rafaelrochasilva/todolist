@@ -7,10 +7,4 @@ class TodoList < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
 	validates_presence_of :name, :user
-
-	def self.save_upload_file(upload_io)
-		File.open(Rails.root.join('public', 'uploads', upload_io.original_filename), 'wb') do |file|
-			file.write(upload_io.read)
-		end
-	end
 end

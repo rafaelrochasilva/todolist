@@ -22,9 +22,6 @@ class TodoListsController < ApplicationController
 		@todo_list = TodoList.new(todo_params)
 
 		if @todo_list.save
-			photo = params[:todo_list][:photo]
-      TodoList.save_upload_file(photo) unless photo.nil?
-
 			flash[:notice] = "Todo was successfully created."
 			respond_with(@todo_list)
 		else
@@ -41,9 +38,6 @@ class TodoListsController < ApplicationController
 		@todo_list = TodoList.find(params[:id])
 
 		if @todo_list.update(todo_params)
-			photo = params[:todo_list][:photo]
-      TodoList.save_upload_file(photo) unless photo.nil?
-
 			flash[:notice] = "Todo was successfully updated."
 			respond_with(@todo_list)
 		else
