@@ -53,5 +53,9 @@ end
 
 gem "paperclip", "~> 4.2"
 
+group :production do
+	gem 'thin'
+end
+
 
 
