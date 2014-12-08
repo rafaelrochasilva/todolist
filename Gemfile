@@ -55,6 +55,7 @@ gem "paperclip", "~> 4.2"
 
 group :production do
 	gem 'thin'
+	gem 'rails_12factor'
 end
 
 
