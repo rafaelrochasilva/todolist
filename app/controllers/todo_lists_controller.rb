@@ -11,6 +11,7 @@ class TodoListsController < ApplicationController
 
 	def show
 		@todo_list = TodoList.find(params[:id])
+		@favorite = @todo_list.favorite_todos.find_by(user_id: current_user)
 	end
 
 	def new
