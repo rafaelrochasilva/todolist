@@ -7,12 +7,11 @@ feature 'ListItem management' do
 	let(:todo_list) { auth_user.todo_lists.create(name: "Todo Title")}
 
 
-	scenario "adds a new list item to Todo List", :js => true do
+	scenario "adds a new list item", :js => true do
 
 		visit todo_list_path(todo_list)
 
 		list_item = todo_list.list_items.new(description: "text item")
-
 
 		click_button '+ item'
 
@@ -21,5 +20,22 @@ feature 'ListItem management' do
 		click_button "Add"
 
 		expect(page).to have_content list_item.description
+	end
+
+	scenario "delete a list item", :js => true do
+
+		visit todo_list_path(todo_list)
+
+		list_item = todo_list.list_items.new(description: "text item")
+
+		click_button '+ item'
+
+		fill_in 'description', with: list_item.description
+
+		click_button "Add"
+
+		click_link "delete"
+
+		expect(page).to_not have_content list_item.description
 	end
 end
