@@ -1,6 +1,6 @@
 class TodoListsController < ApplicationController
 	before_action :authenticate_user!, :only => [:new, :edit, :update, :my_todos, :destroy]
-	before_action :find_todo_list, except: [:index, :new, :create, :my_todos]
+	before_action :find_todo_list, except: [:index, :new, :create, :my_todos, :show]
 
 	def index
 		@todo_lists = TodoList.where(private_todo: false)
@@ -11,6 +11,7 @@ class TodoListsController < ApplicationController
 	end
 
 	def show
+		@todo_list = TodoList.find(params[:id])
 		@favorite = @todo_list.favorite_todos.find_by(user_id: current_user)
 	end
 
