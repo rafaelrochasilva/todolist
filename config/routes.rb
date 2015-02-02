@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'favorites' => 'favorite_todos#index'
   put 'favorite/:id' => 'favorite_todos#favorite', as: :my_favorite
 
+  get '/:user_id/feed' => 'feeds#show', as: :feed
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

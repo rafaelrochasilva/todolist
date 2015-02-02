@@ -1,0 +1,6 @@
+<h1>All User Feed entries</h1>
+<ul>
+	<% @feed_entries.each do |entry| %>
+		<li><%= entry.message %></li>
+	<% end %>
+</ul>

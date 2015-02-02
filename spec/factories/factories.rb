@@ -18,4 +18,9 @@ FactoryGirl.define do
     description Faker::Lorem.paragraph
     todo_list
   end
+
+  factory :feed_entry do
+    message Faker::Lorem.sentence
+    user
+  end
 end

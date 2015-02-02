@@ -1,12 +1,13 @@
 class TodoListsController < ApplicationController
 	before_action :authenticate_user!, :only => [:new, :edit, :update, :my_todos, :destroy]
+	before_action :find_todo_list, except: [:index, :new, :create, :my_todos, :show]
 
 	def index
-		@todo_lists = TodoList.all.where(private_todo: false)
+		@todo_lists = TodoList.where(private_todo: false)
 	end
 
 	def my_todos
-		@my_todos = current_user.todo_lists.all
+		@my_todos = current_user.todo_lists
 	end
 
 	def show
@@ -31,12 +32,9 @@ class TodoListsController < ApplicationController
 	end
 
 	def edit
-		@todo_list = TodoList.find(params[:id])
 	end
 
 	def update
-		@todo_list = TodoList.find(params[:id])
-
 		if @todo_list.update(todo_params)
 			flash[:notice] = "Todo was successfully updated."
 			respond_with(@todo_list)
@@ -47,8 +45,6 @@ class TodoListsController < ApplicationController
 	end
 
 	def destroy
-		@todo_list = TodoList.find(params[:id])
-
 		@todo_list.destroy
 		flash[:notice] = "Todo Successfully destroyed."
 
@@ -58,5 +54,9 @@ class TodoListsController < ApplicationController
 	private
 	def todo_params
 		params.require(:todo_list).permit(:name, :private_todo, :user_id, :photo)
+	end
+
+	def find_todo_list
+		@todo_list = current_user.todo_lists.find(params[:id])
 	end
 end
