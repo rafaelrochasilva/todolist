@@ -12,5 +12,4 @@ Rails.application.routes.draw do
   put 'favorite/:id' => 'favorite_todos#favorite', as: :my_favorite
 
   get '/:user_id/feed' => 'feeds#show', as: :feed
-
 end
