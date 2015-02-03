@@ -21,12 +21,7 @@ class TodoListsController < ApplicationController
 
 	def create
     @todo_list = current_user.todo_lists.create(todo_params)
-
-		if @todo_list.save
-			respond_with(@todo_list)
-		else
-			render 'new'
-		end
+		respond_with(@todo_list)
 	end
 
 	def edit
