@@ -8,21 +8,21 @@ The users could share bullet points, while creating a new graffiti, by this othe
 * Ruby version 2.2.0
 
 * System dependencies
-- Faker
-- Paperclip
-- Postgresql
-- Factory Girl
-- Rspec
-- Capybara
-- Devise
-- Responders
-- Simple Form
+  * Faker
+  * Paperclip
+  * Postgresql
+  * Factory Girl
+  * Rspec
+  * Capybara
+  * Devise
+  * Responders
+  * Simple Form
 
 * Database creation
-- rake db:create
+  * rake db:create
 
 * Database initialization
-- rake db:migrate
+  * rake db:migrate
 
 * Deployment instructions
-Fork the repo and make pull requests to include new features.
+  * Fork the repo and make pull requests to include new features.
