@@ -21,10 +21,8 @@ class TodoListsController < ApplicationController
 
 	def create
 		if @todo_list.save
-			flash[:notice] = "Todo was successfully created."
 			respond_with(@todo_list)
 		else
-			flash[:notice] = "Coudn't create a Todo."
 			render 'new'
 		end
 	end
@@ -34,17 +32,14 @@ class TodoListsController < ApplicationController
 
 	def update
 		if @todo_list.update(todo_params)
-			flash[:notice] = "Todo was successfully updated."
 			respond_with(@todo_list)
 		else
-			flash[:notice] = "Couldn't update a Todo."
 			render 'edit'
 		end
 	end
 
 	def destroy
 		@todo_list.destroy
-		flash[:notice] = "Todo Successfully destroyed."
 
 		respond_with(@todo_list)
 	end
