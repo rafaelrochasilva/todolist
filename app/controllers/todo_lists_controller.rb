@@ -1,6 +1,6 @@
 class TodoListsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
-	before_action :find_todo_list, except: [:create, :update, :destroy]
+	before_action :find_todo_list, only: [:edit, :update, :destroy]
 
 	def index
 		@todo_lists = TodoList.where(private_todo: false)
@@ -20,6 +20,8 @@ class TodoListsController < ApplicationController
 	end
 
 	def create
+    @todo_list = current_user.todo_lists.create(todo_params)
+
 		if @todo_list.save
 			respond_with(@todo_list)
 		else
@@ -40,7 +42,6 @@ class TodoListsController < ApplicationController
 
 	def destroy
 		@todo_list.destroy
-
 		respond_with(@todo_list)
 	end
 
