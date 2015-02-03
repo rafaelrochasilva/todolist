@@ -1,13 +1,13 @@
 class TodoListsController < ApplicationController
-	before_action :authenticate_user!, :only => [:new, :edit, :update, :my_todos, :destroy]
-	before_action :find_todo_list, except: [:index, :new, :create, :my_todos, :show]
+	before_action :authenticate_user!, except: [:index, :show]
+	before_action :find_todo_list, except: [:create, :update, :destroy]
 
 	def index
 		@todo_lists = TodoList.where(private_todo: false)
 	end
 
 	def my_todos
-		@my_todos = current_user.todo_lists
+		@my_todos = current_user.todo_lists.all
 	end
 
 	def show
@@ -20,8 +20,6 @@ class TodoListsController < ApplicationController
 	end
 
 	def create
-		@todo_list = TodoList.new(todo_params)
-
 		if @todo_list.save
 			flash[:notice] = "Todo was successfully created."
 			respond_with(@todo_list)
