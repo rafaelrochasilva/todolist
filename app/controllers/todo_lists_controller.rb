@@ -28,11 +28,8 @@ class TodoListsController < ApplicationController
 	end
 
 	def update
-		if @todo_list.update(todo_params)
-			respond_with(@todo_list)
-		else
-			render 'edit'
-		end
+		@todo_list.update(todo_params)
+		respond_with(@todo_list)
 	end
 
 	def destroy
