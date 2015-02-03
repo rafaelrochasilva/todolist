@@ -3,7 +3,7 @@ class TodoListsController < ApplicationController
 	before_action :find_todo_list, only: [:edit, :update, :destroy]
 
 	def index
-		@todo_lists = TodoList.where(private_todo: false)
+		@todo_lists = TodoList.public_visibility
 	end
 
 	def my_todos

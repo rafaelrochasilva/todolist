@@ -7,4 +7,6 @@ class TodoList < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
 	validates_presence_of :name, :user
+
+  scope :public_visibility, -> { where(private_todo: false) }
 end
