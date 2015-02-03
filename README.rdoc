@@ -5,9 +5,10 @@
 Graffiti Todo is web app made to share todo list between people who like to do Graffiti.
 The users could share bullet points, while creating a new graffiti, by this other users could learn how is the process to make a cool art.
 
-* Ruby version 2.2.0
+#### Ruby version
+  2.2.0
 
-* System dependencies
+#### System dependencies
   * Faker
   * Paperclip
   * Postgresql
@@ -18,11 +19,11 @@ The users could share bullet points, while creating a new graffiti, by this othe
   * Responders
   * Simple Form
 
-* Database creation
-  * rake db:create
+#### Database creation
+  'rake db:create'
 
-* Database initialization
-  * rake db:migrate
+#### Database initialization
+  'rake db:migrate'
 
-* Deployment instructions
-  * Fork the repo and make pull requests to include new features.
+#### Deployment instructions
+  Fork the repo and make pull requests to include new features.
