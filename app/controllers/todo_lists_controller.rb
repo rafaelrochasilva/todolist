@@ -10,8 +10,8 @@ class TodoListsController < ApplicationController
 	end
 
 	def show
-		@todo_list = TodoList.find(params[:id])
-		@favorite = @todo_list.favorite_todos.find_by(user_id: current_user)
+    @todo_list = TodoList.find_visible(params[:id], current_user)
+    @favorite = @todo_list.favorite_todos.find_by(user_id: current_user)
 	end
 
 	def new
@@ -40,8 +40,8 @@ class TodoListsController < ApplicationController
 	end
 
 	private
-  	def todo_params
-  		params.require(:todo_list).permit(:name, :private_todo, :user_id, :photo)
-  	end
+	def todo_params
+		params.require(:todo_list).permit(:name, :private_todo, :user_id, :photo)
+	end
 
 end
