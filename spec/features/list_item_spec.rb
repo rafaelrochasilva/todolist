@@ -15,7 +15,7 @@ feature 'A list items management' do
 	end
 
 	scenario "User deletes a list item", :js => true do
-    list_item = todo_list.list_items.create!(description: "Moon light in 4 steps")
+		list_item = todo_list.list_items.create!(description: "Moon light in 4 steps")
 
 		visit todo_list_path(todo_list)
 		click_link "delete"

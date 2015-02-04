@@ -10,8 +10,8 @@ class TodoListsController < ApplicationController
 	end
 
 	def show
-    @todo_list = TodoList.find_visible(params[:id], current_user)
-    @favorite = @todo_list.favorite_todos.find_by(user_id: current_user)
+		@todo_list = TodoList.find_visible(params[:id], current_user)
+		@favorite = @todo_list.favorite_todos.find_by(user_id: current_user)
 	end
 
 	def new
@@ -19,22 +19,22 @@ class TodoListsController < ApplicationController
 	end
 
 	def create
-    @todo_list = current_user.todo_lists.create(todo_params)
+		@todo_list = current_user.todo_lists.create(todo_params)
 		respond_with(@todo_list)
 	end
 
 	def edit
-    @todo_list = current_user.todo_lists.find(params[:id])
+		@todo_list = current_user.todo_lists.find(params[:id])
 	end
 
 	def update
-    @todo_list = current_user.todo_lists.find(params[:id])
+		@todo_list = current_user.todo_lists.find(params[:id])
 		@todo_list.update(todo_params)
 		respond_with(@todo_list)
 	end
 
 	def destroy
-    @todo_list = current_user.todo_lists.find(params[:id])
+		@todo_list = current_user.todo_lists.find(params[:id])
 		@todo_list.destroy
 		respond_with(@todo_list)
 	end
