@@ -9,15 +9,15 @@ The users could share bullet points, while creating a new graffiti, by this othe
   2.2.0
 
 #### System dependencies
-  * Faker
-  * Paperclip
-  * Postgresql
-  * Factory Girl
-  * Rspec
-  * Capybara
-  * Devise
-  * Responders
-  * Simple Form
+* Faker
+* Paperclip
+* Postgresql
+* Factory Girl
+* Rspec
+* Capybara
+* Devise
+* Responders
+* Simple Form
 
 #### Database creation
   'rake db:create'
