@@ -1,8 +1,7 @@
-	<% if current_user %>
-
-		<% if @favorite %>
-	  	<%= link_to "unfavorite", my_favorite_path(todo_list, type: "unfavorite"), method: :put %>
-		<% else %>
-	  	<%= link_to "favorite", my_favorite_path(todo_list, type: "favorite"), method: :put %>
-		<% end %>
+<% if current_user %>
+	<% if @favorite %>
+  	<%= link_to "unfavorite", favorite_todos_path(todo_list), method: :destroy %>
+	<% else %>
+  	<%= link_to "favorite", favorite_todos_path(id: todo_list), method: :post %>
 	<% end %>
+<% end %>

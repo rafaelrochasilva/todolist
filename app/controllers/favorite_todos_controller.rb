@@ -26,4 +26,13 @@ class FavoriteTodosController < ApplicationController
     respond_with(nil, @todo_list)
   end
 
+	def create
+		todo_list = TodoList.find(params[:id])
+		favorite = current_user.favorite_todos.find_or_create_by(todo_list_id: todo_list.id)
+
+		current_user.feed_entries.create(message: "Todo List #{todo_list.name} was marked as favorite")
+		flash[:notice] = "Add #{todo_list.name} as favorite"
+
+		respond_with(todo_list)
+	end
 end
