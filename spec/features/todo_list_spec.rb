@@ -23,7 +23,7 @@ feature 'TodoList management' do
 
 		visit todo_list_path(private_painting)
 
-		expect { raise 'Not Allowed' }.to raise_exception
+		expect { raise "Couldn't find TodoList" }.to raise_exception
 	end
 
 	scenario 'User creates a new todo list' do

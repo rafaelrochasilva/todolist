@@ -10,7 +10,11 @@ class TodoListsController < ApplicationController
 	end
 
 	def show
-		@todo_list = TodoList.find_visible(params[:id], current_user)
+    if user_signed_in?
+      @todo_list = current_user.todo_lists.find(params[:id])
+    else
+      @todo_list = TodoList.public_visibility.find(params[:id])
+    end
 		@favorite = @todo_list.favorite_todos.find_by(user_id: current_user)
 	end
 

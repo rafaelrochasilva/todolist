@@ -9,16 +9,4 @@ class TodoList < ActiveRecord::Base
 	validates_presence_of :name, :user
 
 	scope :public_visibility, -> { where(private_todo: false) }
-
-	def self.find_visible(id, current_user)
-		if current_user
-			todo = current_user.todo_lists.find(id)
-		else
-			todo = find_by(id: id, private_todo: false)
-		end
-
-		raise ActiveRecord::RecordNotFound, 'Not Allowed' unless todo
-		todo
-	end
-
 end
