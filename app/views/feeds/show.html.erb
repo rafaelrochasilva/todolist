@@ -1,6 +1,6 @@
 <h1>All User Feed entries</h1>
 <ul>
   <% @feed_entries.each do |entry| %>
-    <li><%= raw I18n.t('feed_entries.new_todo_list', todo_list_message: entry.message) %></li>
+    <li><%= t('feed_entries.new_todo_list', todo_list_message: entry.message) %></li>
   <% end %>
 </ul>
