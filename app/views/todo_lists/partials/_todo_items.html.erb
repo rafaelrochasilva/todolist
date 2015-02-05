@@ -15,7 +15,7 @@
 
 <% if user_signed_in? %>
 	<% if todo_list.user.id == current_user.id %>
-		<button class="btn-add-item">+ item</button>
-		<div class="new_form"></div>
+		<button class="btn-add-list-item">+ item</button>
+		<div class="list-item-form"></div>
 	<% end %>
 <% end %>
