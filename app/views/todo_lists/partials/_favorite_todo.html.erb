@@ -1,4 +1,4 @@
-<% if current_user %>
+<% if user_signed_in? %>
 	<% if @favorite %>
   	<%= link_to "unfavorite", favorite_todo_path(id: todo_list), method: :delete %>
 	<% else %>
