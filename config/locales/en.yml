@@ -21,3 +21,5 @@
 
 en:
   hello: "Hello world"
+  feed_entries:
+    new_todo_list: 'Todo List <strong>%{todo_list_message}</strong> as favorite'

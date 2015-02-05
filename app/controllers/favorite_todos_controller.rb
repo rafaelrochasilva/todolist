@@ -9,7 +9,7 @@ class FavoriteTodosController < ApplicationController
     favorite = current_user.favorite_todos.create(todo_list: todo_list)
 
 
-    current_user.feed_entries.create(message: "Todo List #{todo_list.name} was marked as favorite")
+    current_user.feed_entries.create(message: "#{todo_list.name} was marked")
 
     respond_with(todo_list)
   end
@@ -20,7 +20,7 @@ class FavoriteTodosController < ApplicationController
     favorite = current_user.favorite_todos.find_by(todo_list_id: todo_list.id)
     favorite.delete
 
-    current_user.feed_entries.create(message: "Todo List #{todo_list.name} was unmarked as favorite")
+    current_user.feed_entries.create(message: "#{todo_list.name} was unmarked")
 
     respond_with(todo_list)
   end
