@@ -6,17 +6,15 @@ html, body {
 	color: #444;
 }
 
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
 a {
 	text-decoration: none;
 	color: #444;
+  &:hover{
+    text-decoration: underline;
+  }
 }
-
-a:hover {
-	text-decoration: underline;
-}
-
-.container {
-	width: 800px;
-	margin: 0 auto;
-}
-
