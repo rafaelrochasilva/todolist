@@ -1,6 +1,6 @@
 var TodoView = {
-	TODO_FORM: ".new_form",
-	BTN_ADD_ITEM: ".btn-add-item",
+	TODO_FORM: ".list-item-form",
+	BTN_ADD_ITEM: ".btn-add-list-item",
 	IMG_LOADER: "/assets/ajax_loader.gif"
 };
 
