@@ -1,3 +1,7 @@
+/*
+  - Define a main page with a brick background, and a default color whithish
+*/
+
 html, body {
 	margin: 0;
 	width: 100%;
@@ -5,12 +9,18 @@ html, body {
 	background-color: #e0e0e0;
 	color: #444;
 }
-
+/*
+  - Define a container to hold all content into the center.
+*/
 .container {
   width: 800px;
   margin: 0 auto;
 }
 
+/* 
+  - Include a grey style for all links without decoration.
+  - Once is hover the link it includes an underline.
+*/
 a {
 	text-decoration: none;
 	color: #444;
