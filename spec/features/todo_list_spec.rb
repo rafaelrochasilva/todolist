@@ -4,48 +4,50 @@ feature 'TodoList management' do
 	let(:user) { FactoryGirl.create(:user) }
 	before { login_as(user, scope: :user) }
 
-	let(:todo_list) { user.todo_lists.create(name: "test") }
+	let(:todo_list) { user.todo_lists.create!(name: 'Painting the wall like a boss', private_todo: false) }
 
-
-	scenario 'adds a new todo list' do
-	  visit root_path
-	  click_link 'New'
-
-	  fill_in 'Name', with: todo_list.name
-
-	  click_button "Add"
-
-	  expect(page).to have_content 'Todo was successfully created.'
-	end
-
-	scenario 'displays all public todo lists' do
-	  visit root_path
-	  click_link 'All'
-
-	  expect(page).to have_content "All Public Todos"
-	end
-
-	scenario 'display all private todo lists' do
+	scenario 'User visit all public todo lists' do
+		user.todo_lists.create!(name: 'Private idea of painting', private_todo: true)
+		user.todo_lists.create!(name: 'Public idea of painting', private_todo: false)
+		
 		visit root_path
-		click_link "My Todos"
-		expect(page).to have_content "My Private Todos"
+		click_link 'All'
+
+		expect(page).to have_content 'Public idea of painting'
+		expect(page).not_to have_content 'Private idea of painting'
 	end
 
-	scenario 'display one todo list' do
+	scenario 'User can see only private todos made by him self' do
+		private_painting = user.todo_lists.create!(name: 'Mike private painting on the wall', private_todo: true)
+		logout(user, scope: :user)
+
+		visit todo_list_path(private_painting)
+
+		expect { raise "Couldn't find TodoList" }.to raise_exception
+	end
+
+	scenario 'User creates a new todo list' do
+		visit root_path
+		click_link 'New'
+		fill_in 'Name', with: 'Black blocks'
+		click_button 'Add'
+
+		expect(page).to have_content 'Black blocks'
+	end
+
+	scenario 'User updates one todo list' do
 		visit todo_list_path(todo_list.id)
-		expect(page).to have_css ".card"
+		click_link 'Update'
+		fill_in 'Name', with: 'Green Pepper'
+		click_button 'Update'
+
+		expect(page).to have_content 'Green Pepper'
 	end
 
-	scenario 'update one todo list' do
+	scenario 'User deletes one todo list' do
 		visit todo_list_path(todo_list.id)
-		click_link "Update"
-		expect(page).to have_content "Edit Todo"
-	end
+		click_link 'X'
 
-	scenario 'delete one todo list' do
-		visit todo_list_path(todo_list.id)
-		click_link "X"
-		expect(page).to have_content "Todo Successfully destroyed."
+		expect(page).not_to have_content 'Painting the wall like a boss'
 	end
-
 end
