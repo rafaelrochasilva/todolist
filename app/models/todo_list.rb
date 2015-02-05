@@ -9,4 +9,7 @@ class TodoList < ActiveRecord::Base
 	validates_presence_of :name, :user
 
 	scope :public_visibility, -> { where(private_todo: false) }
+  scope :visible_for, -> do |user|
+    where('todo_lists.user_id = ? OR todo_lists.private_todo = ?', user.id, false)
+  }
 end

@@ -5,8 +5,9 @@ class FavoriteTodosController < ApplicationController
   end
 
   def create
-    todo_list = TodoList.find(params[:id])
-    favorite = current_user.favorite_todos.create(todo_list_id: todo_list.id)
+    todo_list = TodoList.visible_for(current_user).find(params[:id])
+    favorite = current_user.favorite_todos.create(todo_list: todo_list)
+
 
     current_user.feed_entries.create(message: "Todo List #{todo_list.name} was marked as favorite")
 
@@ -14,7 +15,7 @@ class FavoriteTodosController < ApplicationController
   end
 
   def destroy
-    todo_list = TodoList.find(params[:id])
+    todo_list = TodoList.visible_for(current_user).find(params[:id])
     
     favorite = current_user.favorite_todos.find_by(todo_list_id: todo_list.id)
     favorite.delete
