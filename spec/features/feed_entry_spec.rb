@@ -10,13 +10,13 @@ feature 'Feed Page' do
   end
 
   scenario 'Favoriting a todo list add an entry to the feed page' do
-  	todo_list = FactoryGirl.create(:todo_list)
+    todo_list = user.todo_lists.create!(name: 'Private idea of painting', private_todo: true)
   	visit todo_list_path(todo_list)
 
-  	click_link "favorite"
+  	click_link 'favorite' 
 
   	visit feed_path(user)
 
-  	expect(page).to have_content "Todo List #{todo_list.name} was marked as favorite"
+  	expect(page).to have_content 'Todo List Private idea of painting was marked as favorite'
   end
 end
