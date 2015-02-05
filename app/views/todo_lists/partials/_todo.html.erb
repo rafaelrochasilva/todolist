@@ -4,7 +4,7 @@
 
 		<%= image_tag(todo_list.photo) %>
 
-		<div class="todo-main">
+		<div class="card-container">
 			<%= render partial: 'todo_lists/partials/favorite_todo', locals: { todo_list: todo_list } %>
 
 			<div class="title" id="<%= todo_list.id %>"><%= todo_list.name %></div>
