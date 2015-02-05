@@ -8,8 +8,7 @@ Rails.application.routes.draw do
     resources :list_item, as: :item
   end
 
-  get 'favorites' => 'favorite_todos#index'
-  put 'favorite/:id' => 'favorite_todos#favorite', as: :my_favorite
+  resources :favorite_todos, only: [:index, :create, :destroy]
 
   get '/:user_id/feed' => 'feeds#show', as: :feed
 end
