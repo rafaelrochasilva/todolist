@@ -1,11 +1,11 @@
 <div class="todo">
-	<div class="card">
-		<a href="<%= todo_list_path(todo_list) %>">
-			<%= image_tag(todo_list.photo) %>
+  <div class="card">
+    <a href="<%= todo_list_path(todo_list) %>">
+      <%= image_tag(todo_list.photo) %>
 
-			<div class="card-container">
-				<div class="title" id="<%= todo_list.id %>"><%= todo_list.name %></div>
-			</div>
-		 </a>
-	</div>
+      <div class="card-container">
+        <div class="title" id="<%= todo_list.id %>"><%= todo_list.name %></div>
+      </div>
+     </a>
+  </div>
 </div>
