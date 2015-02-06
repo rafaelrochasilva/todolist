@@ -1,14 +1,14 @@
 /*
-	- Include a image in the bottom-right side of the page
+  - Include a image in the bottom-right side of the page
 */
 .main-footer {
-	display: block;
-	bottom: 0;
-	width: 100%;
-	position: fixed;
-	z-index: -10;
+  display: block;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  z-index: -10;
 
-	.bg-image-fish {
-		float: right;
-	}
+  .bg-image-fish {
+    float: right;
+  }
 }
