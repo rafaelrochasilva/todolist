@@ -1,5 +1,5 @@
 var TodoList = {
-	BTN_ADD_ITEM: ".btn-add-item",
+	BTN_ADD_ITEM: ".btn-add-list-item",
 	BTN_SUBMIT_ITEM: ".btn-submit-item"
 };
 
@@ -20,7 +20,7 @@ TodoList.addItemListener = function(){
 };
 
 TodoList.submitItemListener = function(){
-	$(".new_form").delegate('form', 'submit', function(e){
+	$(".list-item-form").delegate('form', 'submit', function(e){
 		e.preventDefault();
 		e.stopPropagation();
 

@@ -1,9 +1,0 @@
-<div class="todo-header">
-
-	<% if user_signed_in? %>
-		<% if current_user.id == todo_list.user.id %>
-			<%= link_to "Update", edit_todo_list_path(todo_list), class: "update-todo" %>
-			<%= link_to "X", todo_list_path(todo_list), class: "del-todo", method: :delete %>
-		<% end %>
-	<% end %>
-</div>

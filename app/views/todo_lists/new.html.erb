@@ -1,16 +1,16 @@
-<div class="todo">
+<div class="todo-container">
 
-	<h1>New Todo List</h1>
+  <h1>New Todo List</h1>
 
-	<div class="card">
-		<div class="general-menu">
-			<%= simple_form_for @todo_list do |f| %>
-				<%= f.input :user_id, as: :hidden, input_html: {value: current_user.id } %>
-				<%= f.input :name, placeholder: 'My List' %>
-				<%= f.input :private_todo, as: :boolean, checked_value: true, unchecked_value: false %>
-				<%= f.input :photo, as: :file %>
-				<%= f.button :submit, "Add" %>
-			<% end %>
-		</div>
-	</div>
+  <div class="card">
+    <div class="general-menu">
+      <%= simple_form_for @todo_list do |f| %>
+        <%= f.input :user_id, as: :hidden, input_html: {value: current_user.id } %>
+        <%= f.input :name, placeholder: 'My List' %>
+        <%= f.input :private_todo, as: :boolean, checked_value: true, unchecked_value: false %>
+        <%= f.input :photo, as: :file %>
+        <%= f.button :submit, "Add" %>
+      <% end %>
+    </div>
+  </div>
 </div>
