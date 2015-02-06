@@ -1,15 +1,12 @@
 <div class="todo-container">
   <div class="card">
-    <%= render partial: 'todo_lists/todo_header', locals: { todo_list: @todo_list } %>
-
+    <%= render 'todo_header' %>
     <%= image_tag(@todo_list.photo) %>
 
     <div class="card-container">
-      <%= render partial: 'todo_lists/favorite_todo', locals: { todo_list: @todo_list } %>
-
+      <%= render 'todo_favorite_menu' %>
       <div class="title" id="<%= @todo_list.id %>"><%= @todo_list.name %></div>
-
-      <%= render partial: 'todo_lists/todo_items', locals: { todo_list: @todo_list } %>
+      <%= render 'todo_items' %>
     </div>
   </div>
 </div>
