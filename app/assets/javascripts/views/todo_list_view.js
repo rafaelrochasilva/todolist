@@ -36,12 +36,12 @@ TodoView.createSubmitBtn = function(){
 };
 
 TodoView.displayLoading = function(){
-	var img_loading = "<img class='loading' src="+this.IMG_LOADER+"/>";
+	var img_loading = "<img class='loading-icon' style='width:20px;height:20px' src="+this.IMG_LOADER+"/>";
 	$(this.TODO_FORM).append(img_loading);
 };
 
 TodoView.hideLoading = function(){
-	$(".loading").remove();
+	$(".loading-icon").remove();
 };
 
 TodoView.displayNewListItem = function(data){
