@@ -3,19 +3,15 @@
     <li>
       <%= list_item.description %>
       <span>
-        <% if user_signed_in? %>
-          <% if @todo_list.user.id == current_user.id %>
-            <%= link_to "delete", todo_list_item_path(@todo_list, list_item), class: "delete_item", method: :delete %>
-          <% end %>
+        <% if user_signed_in? && @todo_list.user.id == current_user.id %>
+          <%= link_to "delete", todo_list_item_path(@todo_list, list_item), class: "delete_item", method: :delete %>
         <% end %>
       </span>
     </li>
   <% end %>
 </ul>
 
-<% if user_signed_in? %>
-  <% if @todo_list.user.id == current_user.id %>
-    <button class="btn-add-list-item">+ item</button>
-    <div class="list-item-form"></div>
-  <% end %>
+<% if user_signed_in? && @todo_list.user.id == current_user.id %>
+  <button class="btn-add-list-item">+ item</button>
+  <div class="list-item-form"></div>
 <% end %>
