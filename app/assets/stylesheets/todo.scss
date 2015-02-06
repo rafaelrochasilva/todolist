@@ -10,7 +10,7 @@
 
 
 /*
-  - place holder to display a title and a card
+  Todo List placeholder to display a page title and a card with todo main information.
 */
 .todo-container {
 	display: block;
@@ -19,10 +19,11 @@
 	float: left;
 }
 /*
-  - white card to hold the main todo info with:
-    -Picutre
-    -Header menu, once the user is the owner of the card.
-    -Title
+  Creates a white card, to display the todo item main informations:
+    - Image displaying the Graffiti
+    - Header menu, to delete or updatea todo list
+    - Title
+    - Todo List items
 */
 .card {
   background-color: #fff;
@@ -59,8 +60,8 @@
 }
 
 /*
-  - Card header displays:
-    - the update btn in the left side of the card
+  Card header displays:
+    - the update button in the top left side of the card
     - the delete button in the top right side of the card
 */
 .card-header {
