@@ -46,10 +46,13 @@
 
     ul {
       margin-right: 10px;
+      
       li {
         width: 100%;
+        
         span {
           float: right;
+          
           a {
             color: #999;
           }
@@ -81,7 +84,7 @@
   }
 }
 /*
-  - Displays the button add item as a block in the bottom of the card
+  - Displays a button add item as a block in the bottom of the card
 */
 .btn-add-list-item {
   display: block;
@@ -91,7 +94,7 @@
 /* 
   - Displays a list item form aligned in the bottom center of the card
 */
-.list-item-form form{
+.list-item-form form {
   display: block;
   margin: 10px;
   text-align: center;
@@ -104,8 +107,10 @@
   display: block;
   width: 100%;
   padding: 10px;
+
   .input {
     padding: 10px;
+    
     label {
       margin-right: 20px;
     }

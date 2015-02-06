@@ -11,12 +11,13 @@
 	background-color: rgba(255,255,255,0.6);
 }
 
-.graffiti-logo{
+.graffiti-logo {
   display: block;
   float: left;
   width: auto;
   margin: 12px;
   top: 0;
+  
   img {
     width: 70%;
     height: 70%;
@@ -27,9 +28,11 @@
   float: right;
   display: block;
   margin-right: 5px;
+  
   ul {
     margin: 0;
     padding: 0;
+    
     li {
       display: inline-block;
       line-height: 50px;
