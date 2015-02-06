@@ -101,14 +101,18 @@
 }
 
 /*
-  - It is a menu used in multiple forms, to create or edit a todo list
+  The general menu is used in multiple forms, to create or edit a todo list
+    - Has an form inside general menu 
+    - Include a padding between each div inside of general menu
+      to separate the inputs fields provided by devise.
+    - Include a margin right into labels to make a distance from input field
 */
 .general-menu {
   display: block;
   width: 100%;
   padding: 10px;
 
-  .input {
+  div {
     padding: 10px;
     
     label {
